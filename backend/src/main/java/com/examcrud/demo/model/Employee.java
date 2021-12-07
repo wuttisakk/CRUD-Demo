@@ -10,15 +10,22 @@ public class Employee implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String title;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String presentAddress;
+    private String homeAddress;
+    private String idCardAddress;
 
     public Employee() {}
 
-    public Employee(String title, String name, String presentAddress) {
+    public Employee(Long id, String title, String firstName, String lastName, String presentAddress, String homeAddress, String idCardAddress) {
+        this.id = id;
         this.title = title;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.presentAddress = presentAddress;
+        this.homeAddress = homeAddress;
+        this.idCardAddress = idCardAddress;
     }
 
     public Long getId() {
@@ -37,6 +44,22 @@ public class Employee implements Serializable {
         this.title = title;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getPresentAddress() {
         return presentAddress;
     }
@@ -45,12 +68,20 @@ public class Employee implements Serializable {
         this.presentAddress = presentAddress;
     }
 
-    public String getName() {
-        return name;
+    public String getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public String getIdCardAddress() {
+        return idCardAddress;
+    }
+
+    public void setIdCardAddress(String idCardAddress) {
+        this.idCardAddress = idCardAddress;
     }
 
     @Override
@@ -58,8 +89,11 @@ public class Employee implements Serializable {
         return "Employee{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", presentAddress='" + presentAddress + '\'' +
+                ", homeAddress='" + homeAddress + '\'' +
+                ", idCardAddress='" + idCardAddress + '\'' +
                 '}';
     }
 }

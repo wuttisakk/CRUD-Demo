@@ -4,11 +4,11 @@ import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
 
   user = new User();
   msg='';
@@ -18,14 +18,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loginUser() {
-    this._service.loginUserFromRemote(this.user).subscribe(
+  public registerUser() {
+    this._service.registerUserFromRemote(this.user).subscribe(
       data => {
-        console.log("Login Success")
-        this._route.navigate(['/employee'])
+        this.msg = "Registration Success"
       },
       error => {
-        this.msg = "Login Fail : Wrong username or password"
+        this.msg = error.error
       }
     )
   }

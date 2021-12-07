@@ -1,6 +1,9 @@
 export class Employee {
     id: number;
     title: string;
-    name: string;
+    firstName: string;
+    lastName: string;
     presentAddress: string;
+    homeAddress: string;
+    idCardAddress: string;
 }

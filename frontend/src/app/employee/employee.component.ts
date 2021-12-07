@@ -77,7 +77,8 @@ export class EmployeeComponent implements OnInit {
     const results: Employee[] = [];
     for (const employee of this.employees) {
       if (
-        employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        employee.firstName.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || employee.lastName.toLowerCase().indexOf(key.toLowerCase()) !== -1
         || employee.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
       ) {
         results.push(employee);

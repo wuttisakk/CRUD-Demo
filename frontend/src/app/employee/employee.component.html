@@ -30,16 +30,18 @@
           <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Present Address</th>
-            <th>Actions</th>
+            <th>Home Address</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let employee of employees">
             <td>{{employee.id}}</td>
             <td>{{employee.title}}</td>
-            <td>{{employee.name}}</td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
             <td>{{employee.presentAddress}}</td>
             <td>
               <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top"
@@ -71,13 +73,27 @@
                 <input type="text" ngModel name="title" class="form-control" id="title" placeholder="Title" required>
               </div>
               <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
+                <label for="firstName">First Name</label>
+                <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last Name" required>
               </div>
               <div class="form-group">
                 <label for="presentAddress">Present Address</label>
                 <input type="text" ngModel name="presentAddress" class="form-control" id="presentAddress"
                   placeholder="Present Address" required>
+              </div>
+              <div class="form-group">
+                <label for="homeAddress">Home Address</label>
+                <input type="text" ngModel name="homeAddress" class="form-control" id="homeAddress"
+                  placeholder="Home Address" required>
+              </div>
+              <div class="form-group">
+                <label for="idCardAddress">Present Address</label>
+                <input type="text" ngModel name="idCardAddress" class="form-control" id="idCardAddress"
+                  placeholder="ID-Card Address" required>
               </div>
               <div class="modal-footer">
                 <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -95,7 +111,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editEmployee?.name}}</h5>
+            <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editEmployee?.firstName}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -109,14 +125,29 @@
               </div>
               <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="ID">
               <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name"
-                  placeholder="Name">
+                <label for="firstName">Name</label>
+                <input type="text" ngModel="{{editEmployee?.firstName}}" name="firstName" class="form-control" id="firstName"
+                  placeholder="First Name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Name</label>
+                <input type="text" ngModel="{{editEmployee?.lastName}}" name="lastName" class="form-control" id="lastName"
+                  placeholder="Last Name">
               </div>
               <div class="form-group">
                 <label for="presentAddress">Present Address</label>
                 <input type="text" ngModel="{{editEmployee?.presentAddress}}" name="presentAddress" class="form-control"
                   id="presentAddress" placeholder="Present Address">
+              </div>
+              <div class="form-group">
+                <label for="homeAddress">Home Address</label>
+                <input type="text" ngModel="{{editEmployee?.homeAddress}}" name="homeAddress" class="form-control"
+                  id="homeAddress" placeholder="Home Address">
+              </div>
+              <div class="form-group">
+                <label for="idCardAddress">ID-Card Address</label>
+                <input type="text" ngModel="{{editEmployee?.idCardAddress}}" name="idCardAddress" class="form-control"
+                  id="idCardAddress" placeholder="ID-Card Address">
               </div>
               <div class="modal-footer">
                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
@@ -141,7 +172,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Are you sure you want to delete employee {{deleteEmployee?.name}}?</p>
+            <p>Are you sure you want to delete employee {{deleteEmployee?.firstName}} {{deleteEmployee?.lastName}}?</p>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               <button (click)="onDeleteEmloyee(deleteEmployee?.id)" class="btn btn-danger"
