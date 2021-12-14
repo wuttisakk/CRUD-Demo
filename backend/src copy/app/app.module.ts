@@ -9,31 +9,19 @@ import { EmployeeService } from './employee.service';
 import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { MaterialExampleModule} from '../material.module';
-import { MatNativeDateModule } from '@angular/material/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SortingComponent } from './sorting/sorting.component';
-import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EmployeeComponent,
-    RegistrationComponent,
-    SortingComponent,
-    SearchComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule, 
-    MatNativeDateModule,
-    MaterialExampleModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule
+    FormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

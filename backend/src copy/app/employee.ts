@@ -5,5 +5,5 @@ export class Employee {
     lastName: string;
     presentAddress: string;
     homeAddress: string;
-    workAddress: string;
+    idCardAddress: string;
 }

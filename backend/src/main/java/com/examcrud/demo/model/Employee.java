@@ -14,18 +14,18 @@ public class Employee implements Serializable {
     private String lastName;
     private String presentAddress;
     private String homeAddress;
-    private String idCardAddress;
+    private String workAddress;
 
     public Employee() {}
 
-    public Employee(Long id, String title, String firstName, String lastName, String presentAddress, String homeAddress, String idCardAddress) {
+    public Employee(Long id, String title, String firstName, String lastName, String presentAddress, String homeAddress, String workAddress) {
         this.id = id;
         this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;
         this.presentAddress = presentAddress;
         this.homeAddress = homeAddress;
-        this.idCardAddress = idCardAddress;
+        this.workAddress = workAddress;
     }
 
     public Long getId() {
@@ -76,12 +76,12 @@ public class Employee implements Serializable {
         this.homeAddress = homeAddress;
     }
 
-    public String getIdCardAddress() {
-        return idCardAddress;
+    public String getWorkAddress() {
+        return workAddress;
     }
 
-    public void setIdCardAddress(String idCardAddress) {
-        this.idCardAddress = idCardAddress;
+    public void setWorkAddress(String workAddress) {
+        this.workAddress = workAddress;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class Employee implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", presentAddress='" + presentAddress + '\'' +
                 ", homeAddress='" + homeAddress + '\'' +
-                ", idCardAddress='" + idCardAddress + '\'' +
+                ", workAddress='" + workAddress + '\'' +
                 '}';
     }
 }

@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
       data => {
         console.log("Login Success")
         this._route.navigate(['/employee'])
-        localStorage.setItem("User","this.user");
       },
       error => {
         this.msg = "Login Fail : Wrong username or password"

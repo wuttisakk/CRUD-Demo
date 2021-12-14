@@ -3,9 +3,6 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
-import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -18,13 +15,10 @@ export class EmployeeComponent implements OnInit {
   public editEmployee!: Employee;
   public deleteEmployee!: Employee;
 
-  constructor(private employeeService: EmployeeService, private _route: Router) { }
-
-  user: string;
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.getEmployees();
-    this.user = this.isUserLoggedIn('User');
   }
 
   public getEmployees(): void {
@@ -115,26 +109,6 @@ export class EmployeeComponent implements OnInit {
     }
     container.appendChild(button);
     button.click();
-  }
-  
-  isUserLoggedIn(User: string): string {
-    User = localStorage.getItem(User);
-    if (User === null) {
-      Swal.fire({
-        position: 'center',
-        title: 'Please Login!',
-        showConfirmButton: false,
-        timer: 2000,
-      });
-    this._route.navigate(['/login'])
-    }
-    return User;
-}
-
-  logout() {
-    localStorage.clear();
-    console.log("logout success");
-    this._route.navigate(['/login'])
   }
 
 }
