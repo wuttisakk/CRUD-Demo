@@ -1,6 +1,6 @@
-<div *ngIf="user!==null">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Demo</a>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+    <a class="navbar-brand" style="color:white;">CRUD</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
       aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
       </ul>
-     <button type="button" class="btn btn-secondary" (click)="logout()">Logout</button>
+      <button type="button" class="btn btn-light" (click)="logout()">LOGOUT</button>
     </div>
   </nav>
 
@@ -37,20 +37,19 @@
   <div class="container" id="main-container" style="margin-top: 30px">
     <div class="container">
       <h2>List</h2>
-      <table class="table table-striped">
-        <thead>
+
+      <table class="table">
+        <thead class="table-light">
           <tr>
-            <th>ID</th>
             <th>Title</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>First-Name</th>
+            <th>Last-Name</th>
             <th>Present Address</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let employee of employees">
-            <td>{{employee.id}}</td>
             <td>{{employee.title}}</td>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
@@ -65,6 +64,7 @@
         </tbody>
       </table>
       <button type="button" class="btn btn-success" (click)="onOpenModal(null, 'add')">Add</button>
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page"></mat-paginator>
     </div>
 
     <!-- Add Employee Modal -->
@@ -132,7 +132,8 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editEmployee?.firstName}}</h5>
+            <h5 class="modal-title" id="updateEmployeeModalLabel">Edit {{editEmployee?.firstName}}
+              {{editEmployee?.lastName}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -167,8 +168,8 @@
                   id="homeAddress" placeholder="Home Address">
               </div>
               <div class="form-group">
-                <label for="idCardAddress">Work Address</label>
-                <input type="text" ngModel="{{editEmployee?.idCardAddress}}" name="workAddress" class="form-control"
+                <label for="workAddress">Work Address</label>
+                <input type="text" ngModel="{{editEmployee?.workAddress}}" name="workAddress" class="form-control"
                   id="workAddress" placeholder="work Address">
               </div>
               <div class="modal-footer">
@@ -194,7 +195,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Are you sure you want to delete employee {{deleteEmployee?.firstName}} {{deleteEmployee?.lastName}}?</p>
+            <p>Are you sure you want to delete {{deleteEmployee?.firstName}} {{deleteEmployee?.lastName}}?</p>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               <button (click)="onDeleteEmloyee(deleteEmployee?.id)" class="btn btn-danger"

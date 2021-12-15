@@ -1,17 +1,18 @@
 <table matSort (matSortChange)="sortData($event)">
     <tr>
-        <th mat-sort-header="title">Dessert (100g)</th>
-        <th mat-sort-header="firstName">Calories</th>
-        <th mat-sort-header="lastName">Fat (g)</th>
-        <th mat-sort-header="presentAddress">Carbs (g)</th>
-        <th mat-sort-header="homeAddress">Protein (g)</th>
+      <th mat-sort-header="name">Dessert (100g)</th>
+      <th mat-sort-header="calories">Calories</th>
+      <th mat-sort-header="fat">Fat (g)</th>
+      <th mat-sort-header="carbs">Carbs (g)</th>
+      <th mat-sort-header="protein">Protein (g)</th>
     </tr>
-    <tr *ngFor="let employee of sortedData">
-        <td>{{employee.title}}</td>
-        <td>{{employee.firstName}}</td>
-        <td>{{employee.lastName}}</td>
-        <td>{{employee.presentAddress}}</td>
-        <td>{{employee.homeAddress}}</td>
-        <td>{{employee.idCardAddress}}</td>
+  
+    <tr *ngFor="let dessert of sortedData">
+      <td>{{dessert.name}}</td>
+      <td>{{dessert.calories}}</td>
+      <td>{{dessert.fat}}</td>
+      <td>{{dessert.carbs}}</td>
+      <td>{{dessert.protein}}</td>
     </tr>
-</table>
+  </table>
+  

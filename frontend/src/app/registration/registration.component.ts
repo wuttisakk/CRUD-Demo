@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
@@ -18,13 +19,22 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    timer: 3000,
+    showConfirmButton: false,
+  })
+
   public registerUser() {
     this._service.registerUserFromRemote(this.user).subscribe(
       data => {
-        this.msg = "Registration Success"
+        this.Toast.fire('Create Account Success', '', 'success')
+        console.log("Registration Success")
       },
       error => {
-        this.msg = error.error
+        this.Toast.fire('Email is already exist!', '', 'error')
+        console.log("User or Email is already exist")
       }
     )
   }

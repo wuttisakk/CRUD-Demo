@@ -5,7 +5,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -14,17 +13,20 @@ import { timer } from 'rxjs';
 })
 export class EmployeeComponent implements OnInit {
 
-  public employees!: Employee[];
-  public editEmployee!: Employee;
-  public deleteEmployee!: Employee;
+  public employees: Employee[];
+  public editEmployee: Employee;
+  public deleteEmployee: Employee;
 
-  constructor(private employeeService: EmployeeService, private _route: Router) { }
+  constructor(private employeeService: EmployeeService, private _route: Router) { 
+   
+  }
 
   user: string;
 
   ngOnInit() {
     this.getEmployees();
     this.user = this.isUserLoggedIn('User');
+    
   }
 
   public getEmployees(): void {

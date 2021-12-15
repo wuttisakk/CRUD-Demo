@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SortingComponent } from './sorting/sorting.component';
 import { SearchComponent } from './search/search.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { TestSortingComponent } from './test-sorting/test-sorting.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { SearchComponent } from './search/search.component';
     RegistrationComponent,
     SortingComponent,
     SearchComponent,
+    PaginationComponent,
+    TestSortingComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import { SearchComponent } from './search/search.component';
     MatNativeDateModule,
     MaterialExampleModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
