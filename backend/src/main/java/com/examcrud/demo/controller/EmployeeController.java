@@ -1,21 +1,19 @@
-package com.examcrud.demo.resource;
+package com.examcrud.demo.controller;
 
+import com.examcrud.demo.model.Employee;
+import com.examcrud.demo.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
-
-import com.examcrud.demo.model.Employee;
-import com.examcrud.demo.service.EmployeeService;
 
 @RestController
 @RequestMapping("/employee")
-public class EmployeeResource {
+public class EmployeeController {
     private final EmployeeService employeeService;
 
-    public EmployeeResource(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 

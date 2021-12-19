@@ -1,4 +1,4 @@
-package com.examcrud.demo.resource;
+package com.examcrud.demo.controller;
 
 import com.examcrud.demo.model.User;
 import com.examcrud.demo.service.UserService;
@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserResource {
-
+public class UserController {
     @Autowired
     private UserService service;
 
@@ -23,10 +22,10 @@ public class UserResource {
                 throw new Exception("user with " + tempEmailId + " is already exist");
             }
         }
-            User userObj = null;
-            userObj = service.saveUser(user);
-            return userObj;
-        }
+        User userObj = null;
+        userObj = service.saveUser(user);
+        return userObj;
+    }
 
     @PostMapping("/login")
     public User loginUser(@RequestBody User user) throws Exception {
